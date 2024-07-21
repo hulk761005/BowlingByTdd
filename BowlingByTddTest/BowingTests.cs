@@ -48,6 +48,23 @@ public class BowingTests
         _bowing.Score().Should().Be(43);
     }
 
+    [Fact]
+    public void All_Miss_Game()
+    {
+        NumberOfKnockoutsInOneFrame(5, 0);
+        NumberOfKnockoutsInOneFrame(8, 0);
+        NumberOfKnockoutsInOneFrame(6, 0);
+        NumberOfKnockoutsInOneFrame(0, 7);
+        NumberOfKnockoutsInOneFrame(7, 0);
+        NumberOfKnockoutsInOneFrame(0, 9);
+        NumberOfKnockoutsInOneFrame(5, 0);
+        NumberOfKnockoutsInOneFrame(8, 0);
+        NumberOfKnockoutsInOneFrame(0, 9);
+        NumberOfKnockoutsInOneFrame(9, 0);
+
+        _bowing.Score().Should().Be(73);
+    }
+    
     private void NumberOfKnockoutsInOneFrame(int first, int second)
     {
         _bowing.Roll(first);
