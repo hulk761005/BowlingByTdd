@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingByTdd", "BowlingByTdd\BowlingByTdd.csproj", "{709AF446-711D-4362-8AAA-B8556031381E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BowlingByTddTest", "BowlingByTddTest\BowlingByTddTest.csproj", "{AC53061A-F5FD-4844-9388-4C843DB76254}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{709AF446-711D-4362-8AAA-B8556031381E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709AF446-711D-4362-8AAA-B8556031381E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709AF446-711D-4362-8AAA-B8556031381E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709AF446-711D-4362-8AAA-B8556031381E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC53061A-F5FD-4844-9388-4C843DB76254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC53061A-F5FD-4844-9388-4C843DB76254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC53061A-F5FD-4844-9388-4C843DB76254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC53061A-F5FD-4844-9388-4C843DB76254}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
