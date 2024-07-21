@@ -4,6 +4,8 @@ namespace BowlingByTddTest;
 
 public class BowingTests
 {
+    private readonly Bowing _bowing = new();
+    
     [Fact]
     public void Roll_1_And_Get_1_Score()
     {
@@ -17,13 +19,9 @@ public class BowingTests
     [Fact]
     public void Roll_1_And_2_Get_3_Score()
     {
-        var first = 1;
-        var second = 2;
-        var bowing = new Bowing();
-        bowing.Roll(first);
-        bowing.Roll(second);
+        NumberOfKnockoutsInOneFrame(1, 2);
 
-        bowing.Score().Should().Be(3);
+        _bowing.Score().Should().Be(3);
     }
 
     [Fact]
@@ -34,35 +32,26 @@ public class BowingTests
         var third = 3;
         var fourth = 5;
         
-        var bowing = new Bowing();
-        bowing.Roll(first);
-        bowing.Roll(second);
-        bowing.Roll(third);
-        bowing.Roll(fourth);
+        NumberOfKnockoutsInOneFrame(6, 4);
+        NumberOfKnockoutsInOneFrame(3, 5);
 
-        bowing.Score().Should().Be(21);
+        _bowing.Score().Should().Be(21);
     }
     
     [Fact]
     public void Roll_Two_Spare_And_7_And_1_Get_43_Score()
     {
-        var first = 5;
-        var second = 5;
-        var third = 8;
-        var fourth = 2;
-        var fifth = 6;
-        var sixth = 3;
+        NumberOfKnockoutsInOneFrame(5, 5);
+        NumberOfKnockoutsInOneFrame(8, 2);
+        NumberOfKnockoutsInOneFrame(6, 3);
 
-        var bowing = new Bowing();
-        bowing.Roll(first);
-        bowing.Roll(second);
-        bowing.Roll(third);
-        bowing.Roll(fourth);
-        bowing.Roll(fifth);
-        bowing.Roll(sixth);
-
-        bowing.Score().Should().Be(43);
+        _bowing.Score().Should().Be(43);
     }
 
+    private void NumberOfKnockoutsInOneFrame(int first, int second)
+    {
+        _bowing.Roll(first);
+        _bowing.Roll(second);
+    }
 }
 
