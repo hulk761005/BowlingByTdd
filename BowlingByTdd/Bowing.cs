@@ -4,42 +4,43 @@ public class Bowing
 {
     private bool isNewFrames = true;
     private int _firstHand;
-    private int _previous;
-    private bool isSpare;
+    private int _bonus;
+    private int _bonusTime;
+    private int _score;
     private int _frame;
     public void Roll(int pins)
     {
-        if (_frame == 10 && isSpare)
+        if (_bonusTime > 0)
         {
-            _previous += pins;
+            _bonus += pins;
+            _bonusTime--;
+        }
+
+        if (isNewFrames)
+        {
+            _firstHand = pins;
+            _frame++;
         }
         else
         {
-            if (isNewFrames)
+            if (IsSpare(_firstHand, pins))
             {
-                _frame++;
-                if (isSpare)
-                {
-                    _previous += pins;
-                }
-
-                _firstHand = pins;
-            }
-            else
-            {
-            
-                isSpare = _firstHand + pins == 10;
-
-
-                _previous += _firstHand + pins;
-                _firstHand = 0;
+                _bonusTime += 1;
             }
         }
+
+        if (_frame >= 11) return;
+        _score += pins;
         isNewFrames = !isNewFrames;
+    }
+
+    private static bool IsSpare(int firstHand, int secondHand)
+    {
+        return firstHand + secondHand == 10;
     }
 
     public int Score()
     {
-        return _previous + _firstHand;
+        return _score + _bonus;
     }
 }
