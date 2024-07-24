@@ -2,7 +2,7 @@
 
 public class Bowing
 {
-    private bool isNewFrames = true;
+    private bool isNewFrames;
     private int _firstHand;
     private int _bonus;
     private int _bonusTime;
@@ -15,11 +15,21 @@ public class Bowing
             _bonus += pins;
             _bonusTime--;
         }
-
+        isNewFrames = !isNewFrames;
+        
         if (isNewFrames)
         {
-            _firstHand = pins;
             _frame++;
+            if (IsStrike(pins))
+            {
+                _bonusTime += 2;
+                isNewFrames = false;
+                _firstHand = 0;
+            }
+            else
+            {
+                _firstHand = pins;
+            }
         }
         else
         {
@@ -31,7 +41,11 @@ public class Bowing
 
         if (_frame >= 11) return;
         _score += pins;
-        isNewFrames = !isNewFrames;
+    }
+
+    private static bool IsStrike(int pins)
+    {
+        return pins == 10;
     }
 
     private static bool IsSpare(int firstHand, int secondHand)
