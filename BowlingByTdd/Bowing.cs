@@ -12,6 +12,11 @@ public class Bowing
     {
         if (_bonusTime > 0)
         {
+            if (_bonusTime > 2)
+            {
+                _bonus += pins;
+                _bonusTime--;
+            }
             _bonus += pins;
             _bonusTime--;
         }
