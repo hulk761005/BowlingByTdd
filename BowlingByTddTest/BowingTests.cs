@@ -90,6 +90,15 @@ public class BowingTests
         NumberOfKnockoutsInOneFrame(7, 1);
         _bowing.Score().Should().Be(26);
     }
+    
+    [Fact]
+    public void Roll_1_Strike_And_1_Spare_And_5_And_3_Get_43()
+    {
+        _bowing.Roll(10);
+        NumberOfKnockoutsInOneFrame(7, 3);
+        NumberOfKnockoutsInOneFrame(5, 3);
+        _bowing.Score().Should().Be(43);
+    }
 
     private void NumberOfKnockoutsInOneFrame(int first, int second)
     {
