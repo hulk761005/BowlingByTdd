@@ -126,6 +126,24 @@ public class BowingTests
         _bowing.Roll(10);
         _bowing.Score().Should().Be(200);
     }
+    
+    [Fact]
+    public void Perfect_Game()
+    {
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Roll(10);
+        _bowing.Score().Should().Be(300);
+    }
 
     private void NumberOfKnockoutsInOneFrame(int first, int second)
     {
